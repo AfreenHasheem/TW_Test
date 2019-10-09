@@ -77,6 +77,10 @@ public class Hero implements Serializable {
         this.bio = bio;
     }
 
+    public Hero(String name) {
+        this.name = name;
+    }
+
     public Hero(String name, String realname, String team, String firstappearance, String createdby, String publisher, String imageurl, String bio) {
         this.name = name;
         this.realname = realname;
