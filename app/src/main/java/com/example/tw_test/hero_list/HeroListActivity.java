@@ -1,5 +1,6 @@
 package com.example.tw_test.hero_list;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
     HeroAdapter heroAdapter;
     private List<Hero> heroesList;
     private HeroListPresenter heroListPresenter;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,20 +47,29 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
         heroAdapter = new HeroAdapter(this, heroesList);
         recyclerView.setAdapter(heroAdapter);
 
+        progressDialog = new ProgressDialog(HeroListActivity.this);
+        progressDialog.setMax(100);
+        progressDialog.setMessage("Its loading....");
+        progressDialog.setTitle("ProgressDialog bar example");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+
         //add loading here
+
+        progressDialog.show();
 
     }
 
     @Override
     public void showProgress() {
 
-        //show loading
+       progressDialog.show();
 
     }
 
     @Override
     public void hideProgress() {
         //hide loading
+        progressDialog.dismiss();
     }
 
     @Override
