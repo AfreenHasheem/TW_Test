@@ -6,12 +6,7 @@ import com.example.tw_test.adapter.HeroAdapter;
 import com.example.tw_test.model.Hero;
 import com.example.tw_test.network.ApiClient;
 import com.example.tw_test.network.ApiInterface;
-
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

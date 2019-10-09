@@ -3,8 +3,6 @@ package com.example.tw_test.hero_list;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
