@@ -34,11 +34,7 @@ public class HeroListModel implements HeroListContract.Model {
 
                 List<Hero> heroesList = response.body();
 
-                String[] heroes = new String[heroesList.size()];
-                for (int i = 0; i < heroesList.size(); i++) {
-                    heroes[i] = heroesList.get(i).getName();
-                }
-
+                onFinishedListener.onFinished(heroesList);
 
             }
 
