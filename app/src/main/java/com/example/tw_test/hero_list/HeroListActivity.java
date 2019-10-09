@@ -45,16 +45,20 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
         heroAdapter = new HeroAdapter(this, heroesList);
         recyclerView.setAdapter(heroAdapter);
 
+        //add loading here
+
     }
 
     @Override
     public void showProgress() {
 
+        //show loading
+
     }
 
     @Override
     public void hideProgress() {
-
+        //hide loading
     }
 
     @Override
@@ -69,5 +73,11 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
     public void onResponseFailure(Throwable throwable) {
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        heroListPresenter.onDestroy();
     }
 }
