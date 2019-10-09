@@ -49,6 +49,7 @@ public class HeroListPresenter implements HeroListContract.Presenter, HeroListCo
             heroListView.showProgress();
         }
         heroListModel.getHeroList(this);
+
     }
 
     }

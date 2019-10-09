@@ -8,7 +8,10 @@ import com.example.tw_test.network.ApiClient;
 import com.example.tw_test.network.ApiInterface;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,6 +26,8 @@ public class HeroListModel implements HeroListContract.Model {
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
+
+
 
         Call<List<Hero>> call = apiService.getHeroes();
 

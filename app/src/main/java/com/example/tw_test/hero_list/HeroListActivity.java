@@ -2,6 +2,7 @@ package com.example.tw_test.hero_list;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
     private List<Hero> heroesList;
     private HeroListPresenter heroListPresenter;
     ProgressDialog progressDialog;
+    int cacheSize = 10 * 1024 * 1024;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,8 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
 
     @Override
     public void onResponseFailure(Throwable throwable) {
+        Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
+        progressDialog.dismiss();
 
 
     }
