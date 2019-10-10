@@ -19,8 +19,6 @@ public class ApiClient {
     ConnectionDetector connectionDetector;
 
 
-
-
     /**
      * This method returns retrofit client instance
      *
@@ -37,7 +35,7 @@ public class ApiClient {
                         public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
                             Request.Builder requestBuilder = chain.request()
                                     .newBuilder();
-                            if (!connectionDetector.isConnectingToInternet()){
+                            if (!connectionDetector.isConnectingToInternet()) {
                                 int maxStale = 60 * 60 * 24 * 28; // tolerate 4-weeks stale \
                                 requestBuilder.header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale);
                             } else {
@@ -49,14 +47,14 @@ public class ApiClient {
                     })
                     .build();
 
-                retrofit = new Retrofit.Builder()
-                        .baseUrl(BASE_URL)
-                        .client(okHttpClient)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-            }
-            return retrofit;
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(okHttpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
         }
-
+        return retrofit;
     }
+
+}
 

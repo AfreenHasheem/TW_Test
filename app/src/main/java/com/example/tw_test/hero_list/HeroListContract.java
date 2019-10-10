@@ -10,7 +10,7 @@ public interface HeroListContract {
 
         void getHeroList(OnFinishedListener onFinishedListener);
 
-            interface OnFinishedListener {
+        interface OnFinishedListener {
 
             void onFinished(List<Hero> heroList);
 

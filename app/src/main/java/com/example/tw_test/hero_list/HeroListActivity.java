@@ -3,6 +3,7 @@ package com.example.tw_test.hero_list;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,10 +28,8 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         initUI();
 
-        //Initializing presenter
         heroListPresenter = new HeroListPresenter(getApplicationContext(), this);
 
         heroListPresenter.requestDataFromServer();
@@ -40,19 +39,14 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         heroesList = new ArrayList<>();
-
         heroAdapter = new HeroAdapter(this, heroesList);
         recyclerView.setAdapter(heroAdapter);
-
         progressDialog = new ProgressDialog(HeroListActivity.this);
         progressDialog.setMax(100);
         progressDialog.setMessage("Its loading....");
         progressDialog.setTitle("ProgressDialog bar example");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-
-        //add loading here
 
         progressDialog.show();
 
@@ -61,13 +55,13 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
     @Override
     public void showProgress() {
 
-       progressDialog.show();
+        progressDialog.show();
 
     }
 
     @Override
     public void hideProgress() {
-        //hide loading
+
         progressDialog.dismiss();
     }
 

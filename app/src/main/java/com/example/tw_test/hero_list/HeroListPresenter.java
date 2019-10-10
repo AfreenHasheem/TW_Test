@@ -54,5 +54,5 @@ public class HeroListPresenter implements HeroListContract.Presenter, HeroListCo
 
     }
 
-    }
+}
 

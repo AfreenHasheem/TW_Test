@@ -2,10 +2,13 @@ package com.example.tw_test.hero_list;
 
 import android.content.Context;
 import android.util.Log;
+
 import com.example.tw_test.model.Hero;
 import com.example.tw_test.network.ApiClient;
 import com.example.tw_test.network.ApiInterface;
+
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,7 +31,7 @@ public class HeroListModel implements HeroListContract.Model {
 
         Call<List<Hero>> call = apiService.getHeroes();
 
-        call.enqueue(new Callback<List<Hero>>(){
+        call.enqueue(new Callback<List<Hero>>() {
 
 
             @Override

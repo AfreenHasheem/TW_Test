@@ -18,7 +18,7 @@ public class HeroListPresenterTest {
 
     Context context = mock(Context.class);
 
-    private HeroListPresenter presenter = new HeroListPresenter(context,view);
+    private HeroListPresenter presenter = new HeroListPresenter(context, view);
 
     @Test
     public void testDataReadyShouldTriggerViewUpdate() {

@@ -9,21 +9,18 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.tw_test.R;
 import com.example.tw_test.model.Hero;
-
 import java.util.List;
 
 public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder> {
 
 
+    private static int currentPosition = 0;
     private List<Hero> heroList;
     private Context context;
-    private static int currentPosition = 0;
 
     public HeroAdapter(Context context, List<Hero> heroList) {
         this.heroList = heroList;
@@ -32,7 +29,7 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
 
     @Override
     public HeroAdapter.HeroViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_layout_heroes, viewGroup,false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_layout_heroes, viewGroup, false);
         return new HeroViewHolder(v);
     }
 
@@ -51,25 +48,18 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
         Glide.with(context).load(heroModel.getImageurl()).into(heroViewHolder.imageView);
         heroViewHolder.linearLayout.setVisibility(View.GONE);
 
-        //if the position is equals to the item position which is to be expanded
-
-        if (currentPosition == i){
+        if (currentPosition == i) {
             Animation slideDown = AnimationUtils.loadAnimation(context, R.anim.animation);
 
-            //toggling visibility
             heroViewHolder.linearLayout.setVisibility(View.VISIBLE);
 
-            //adding sliding effect
             heroViewHolder.linearLayout.startAnimation(slideDown);
         }
 
         heroViewHolder.textViewName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //getting the position of the item to expand it
                 currentPosition = i;
-
-                //reloding the list
                 notifyDataSetChanged();
             }
         });
@@ -82,25 +72,24 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
         return heroList.size();
     }
 
-    public class HeroViewHolder extends RecyclerView.ViewHolder{
+    public class HeroViewHolder extends RecyclerView.ViewHolder {
         TextView textViewName, textViewRealName, textViewTeam, textViewFirstAppearance,
                 textViewCreatedBy, textViewPublisher, textViewBio;
 
         ImageView imageView;
         LinearLayout linearLayout;
 
-        HeroViewHolder(View itemView){
+        HeroViewHolder(View itemView) {
             super(itemView);
 
             textViewName = itemView.findViewById(R.id.textViewName);
-            textViewRealName =  itemView.findViewById(R.id.textViewRealName);
-            textViewTeam =  itemView.findViewById(R.id.textViewTeam);
+            textViewRealName = itemView.findViewById(R.id.textViewRealName);
+            textViewTeam = itemView.findViewById(R.id.textViewTeam);
             textViewFirstAppearance = itemView.findViewById(R.id.textViewFirstAppearance);
             textViewCreatedBy = itemView.findViewById(R.id.textViewCreatedBy);
             textViewPublisher = itemView.findViewById(R.id.textViewPublisher);
             textViewBio = itemView.findViewById(R.id.textViewBio);
             imageView = itemView.findViewById(R.id.imageView);
-
             linearLayout = itemView.findViewById(R.id.linearLayout);
 
         }
