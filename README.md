@@ -4,35 +4,35 @@ An Android Application written in Java to fetch names of Marvel superheroes from
 
 JSON Data is fetched from : BASE_URL = "https://simplifiedcoding.net/demos/marvel"
 
-On clicking an item in the list, the item expands with more information.
-Retrofit is the third party library used for fetching the data. 
-Offline functionality is implemented by caching the data.
-The architecture pattern followed is MVP.
-Mockito is used to test the Presenter layer.
+On clicking an item in the list, the item expands with more information.  
+Retrofit is the third party library used for fetching the data.   
+Offline functionality is implemented by caching the data.  
+The architecture pattern followed is MVP.  
+Mockito is used to test the Presenter layer.  
 
-The model Package
-Contains the serializable model class Hero.java
+The model Package . 
+Contains the serializable model class Hero.java . 
 
-The adapter Package
-Contains the HeroAdapter.java class
-Inflates the view for each item in the recycler view. Glide is used to load the images from the API
+The adapter Package . 
+Contains the HeroAdapter.java class . 
+Inflates the view for each item in the recycler view. Glide is used to load the images from the API . 
 
-The network Package
-Contains the following classes:
-ApiClient.java : Has the implementation of the Retrofit library and the Retrofit caching. The check for network connectivity is done in this class and data is updated to the cache.
-ApiInterface : Has the GET request
-ConnectionDetector.java : Function to check for network connectivity on the device
+The network Package . 
+Contains the following classes:  
+ApiClient.java : Has the implementation of the Retrofit library and the Retrofit caching. The check for network connectivity is done in this class and data is updated to the cache.  
+ApiInterface : Has the GET request . 
+ConnectionDetector.java : Function to check for network connectivity on the device . 
 
-The hero_list package
-Contains the following classes:
-HeroListActivity.java : 
-``initUI() `` : Initializes the RecyclerView and the progressDialog 
-``setDataToRecyclerView()``: Populates the list
-``heroListPresenter = new HeroListPresenter(getApplicationContext(), this);``: Initializes the Presenter
-HeroListContract Interface : Has the methods for the Model-View-Presenter
-HeroListModel.java : Uses Retrofit instance and fetches the data from the API in a background thread using `` call.enqueue``
-HeroListPresenter.java : Requests the data from the server and populates the RecyclerView with a list of Heroes
+The hero_list package . 
+Contains the following classes:  
+HeroListActivity.java :   
+``initUI() `` : Initializes the RecyclerView and the progressDialog   
+``setDataToRecyclerView()``: Populates the list . 
+``heroListPresenter = new HeroListPresenter(getApplicationContext(), this);``: Initializes the Presenter . 
+HeroListContract Interface : Has the methods for the Model-View-Presenter . 
+HeroListModel.java : Uses Retrofit instance and fetches the data from the API in a background thread using `` call.enqueue`` . 
+HeroListPresenter.java : Requests the data from the server and populates the RecyclerView with a list of Heroes . 
 
-Unit Test:
-``HeroListPresenterTest.java``` : Uses Mockito to test the Presentation layer
+Unit Test:  
+``HeroListPresenterTest.java``: Uses Mockito to test the Presentation layer  
 
