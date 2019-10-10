@@ -1,5 +1,7 @@
 package com.example.tw_test.hero_list;
 
+import android.content.Context;
+
 import com.example.tw_test.model.Hero;
 
 import java.util.List;
@@ -10,9 +12,9 @@ public class HeroListPresenter implements HeroListContract.Presenter, HeroListCo
 
     private HeroListContract.Model heroListModel;
 
-    public HeroListPresenter(HeroListContract.View heroListView) {
+    public HeroListPresenter(Context context, HeroListContract.View heroListView) {
         this.heroListView = heroListView;
-        heroListModel = new HeroListModel();
+        heroListModel = new HeroListModel(context);
     }
 
     @Override

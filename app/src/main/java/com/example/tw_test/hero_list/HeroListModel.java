@@ -1,11 +1,13 @@
 package com.example.tw_test.hero_list;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.example.tw_test.adapter.HeroAdapter;
 import com.example.tw_test.model.Hero;
 import com.example.tw_test.network.ApiClient;
 import com.example.tw_test.network.ApiInterface;
+import com.example.tw_test.network.ConnectionDetector;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,34 +24,17 @@ public class HeroListModel implements HeroListContract.Model {
 
     private final String TAG = "HeroListModel";
 
+    private final Context context;
+
+    private final ApiInterface apiService;
+
+    public HeroListModel(Context context) {
+        this.context = context;
+        apiService = ApiClient.getClient(context).create(ApiInterface.class);
+    }
 
     @Override
     public void getHeroList(final OnFinishedListener onFinishedListener) {
-//
-//        Cache cache = new Cache(getCacheDir(), cacheSize);
-//        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-//                .cache(cache)
-//                .addInterceptor(new Interceptor() {
-//                    @Override
-//                    public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
-//                        Request request = chain.request();
-//                        if (!mConnectionDetector.isConnectingToInternet()){
-//                            int maxStale = 60 * 60 * 24 * 28; // tolerate 4-weeks stale \
-//                            request = request
-//                                    .newBuilder()
-//                                    .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-//                                    .build();
-//                        }
-//
-//                        return chain.proceed(request);
-//                    }
-//                })
-//                .build();
-
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
-
-
 
         Call<List<Hero>> call = apiService.getHeroes();
 

@@ -32,7 +32,7 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
         initUI();
 
         //Initializing presenter
-        heroListPresenter = new HeroListPresenter(this);
+        heroListPresenter = new HeroListPresenter(getApplicationContext(), this);
 
         heroListPresenter.requestDataFromServer();
     }
