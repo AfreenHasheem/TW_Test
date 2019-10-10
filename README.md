@@ -6,9 +6,9 @@ JSON Data is fetched from : BASE_URL = "https://simplifiedcoding.net/demos/marve
 
 On clicking an item in the list, the item expands with more information.
 Retrofit is the third party library used for fetching the data. 
-Offline functionality is implemented by caching the data
-The architecture pattern followed is MVP
-Mockito is used to test the Presenter layer
+Offline functionality is implemented by caching the data.
+The architecture pattern followed is MVP.
+Mockito is used to test the Presenter layer.
 
 The model Package
 Contains the serializable model class Hero.java
