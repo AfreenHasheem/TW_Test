@@ -2,20 +2,10 @@ package com.example.tw_test.hero_list;
 
 import android.content.Context;
 import android.util.Log;
-
-import com.example.tw_test.adapter.HeroAdapter;
 import com.example.tw_test.model.Hero;
 import com.example.tw_test.network.ApiClient;
 import com.example.tw_test.network.ApiInterface;
-import com.example.tw_test.network.ConnectionDetector;
-
-import java.io.IOException;
 import java.util.List;
-
-import okhttp3.Cache;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -21,7 +21,6 @@ public class HeroListActivity extends AppCompatActivity implements HeroListContr
     private List<Hero> heroesList;
     private HeroListPresenter heroListPresenter;
     ProgressDialog progressDialog;
-    int cacheSize = 10 * 1024 * 1024;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
