@@ -27,7 +27,7 @@ The hero_list package .
 Contains the following classes:  
 HeroListActivity.java :   
 ``initUI() `` : Initializes the RecyclerView and the progressDialog   
-``setDataToRecyclerView()``: Populates the list . 
+``setDataToRecyclerView()``: Populates the list .  
 ``heroListPresenter = new HeroListPresenter(getApplicationContext(), this);``: Initializes the Presenter . 
 HeroListContract Interface : Has the methods for the Model-View-Presenter . 
 HeroListModel.java : Uses Retrofit instance and fetches the data from the API in a background thread using `` call.enqueue`` . 
